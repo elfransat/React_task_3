@@ -4,4 +4,4 @@
 
 This Application was created to allow me to familiarise myself with React and in particular the use of Components, handle events and change states.
 
-![image](https://imgur.com/QCzBVAt)
+![image](https://i.imgur.com/QCzBVAt.png)
