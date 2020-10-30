@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -9,6 +10,12 @@ class App extends Component {
     this.setState({
       likes: this.state.likes + 1,
     });
+    let circleChanger = document.querySelector(".circle");
+    if (this.state.likes % 2 === 0 || this.state.likes % 2 === 2) {
+      circleChanger.style.background = "blue";
+    } else {
+      circleChanger.style.background = "red";
+    }
   };
 
   removeHandler = () => {
@@ -16,10 +23,12 @@ class App extends Component {
       this.setState({
         likes: this.state.likes - 1,
       });
+    }
+    let circleChanger = document.querySelector(".circle");
+    if (this.state.likes % 2 === 0 || this.state.likes % 2 === 2) {
+      circleChanger.style.background = "blue";
     } else {
-      this.setState({
-        likes: 0,
-      });
+      circleChanger.style.background = "red";
     }
   };
 
@@ -27,15 +36,20 @@ class App extends Component {
     this.setState({
       likes: 0,
     });
+    let circleChanger = document.querySelector(".circle");
+    circleChanger.style.background = "red";
   };
 
   render() {
     return (
-      <div>
+      <div class="container">
+        <div class="circle"></div>
         <h1>Total Likes: {this.state.likes}</h1>
-        <button onClick={this.addHandler}>Add One</button>
-        <button onClick={this.removeHandler}>Remove One</button>
-        <button onClick={this.resetHandler}>Reset</button>
+        <div class="buttons">
+          <button onClick={this.addHandler}>Add One</button>
+          <button onClick={this.removeHandler}>Remove One</button>
+          <button onClick={this.resetHandler}>Reset</button>
+        </div>
       </div>
     );
   }
